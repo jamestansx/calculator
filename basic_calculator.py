@@ -26,10 +26,11 @@ def div(nums):
     return div
 
 
-nums = [int(x) for x in input("Enter the numbers: ").split()]  # can recieve indefinite inputs
-arithmetic = input("Which arithmetic operator to use: ")  # +,-,*,/
+if __name__ == '__main__':
+    nums = [int(x) for x in input("Enter the numbers: ").split()]  # can recieve indefinite inputs
+    arithmetic = input("Which arithmetic operator to use: ")  # +,-,*,/
 
-arithmetic_operator = {"+": add(nums), "-": sub(nums), "*": mul(nums), "/": div(nums)}
+    arithmetic_operator = {"+": add(nums), "-": sub(nums), "*": mul(nums), "/": div(nums)}
 
 
-print(arithmetic_operator[arithmetic])
+    print(arithmetic_operator[arithmetic])
