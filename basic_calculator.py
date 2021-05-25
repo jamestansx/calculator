@@ -22,25 +22,12 @@ def div(nums):
         div /= nums[i]
     return div
 
-<<<<<<< HEAD
 
 if __name__ == '__main__':
     nums = [int(x) for x in input("Enter the numbers: ").split()]  # can recieve indefinite inputs
     arithmetic = input("Which arithmetic operator to use: ")  # +,-,*,/
-=======
-nums = [int(x) for x in input("Enter the numbers: ").split()]  # can recieve indefinite inputs
-# converted arithmetic to a tuple
-arithmetic = (str(input("Which arithmetic operator to use: "))).split()  # +,-,*,/
->>>>>>> fixed multi-operator and mult and div errors
 
     arithmetic_operator = {"+": add(nums), "-": sub(nums), "*": mul(nums), "/": div(nums)}
 
-<<<<<<< HEAD
 
     print(arithmetic_operator[arithmetic])
-=======
-# initialized a for loop for printing the values
-for x in range(len(arithmetic)):
-    str = arithmetic[x]
-    print(arithmetic_operator[str])
->>>>>>> fixed multi-operator and mult and div errors
