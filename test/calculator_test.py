@@ -27,3 +27,8 @@ def test_mul_edges():
 def test_div():
 
     assert div(input) == 1 / 2 / 3 / 4
+
+
+def test_div_edges():
+
+    assert div(edge_input) == 2 / 3 / 4 / 5
