@@ -5,8 +5,8 @@ def add(nums):
     return sum
 
 def sub(nums):
-    sub = 0
-    for i in range(len(nums)):
+    sub = nums[0]
+    for i in range(1, len(nums)):
         sub -= nums[i]
     return sub
 
