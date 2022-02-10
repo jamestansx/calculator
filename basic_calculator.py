@@ -1,30 +1,45 @@
-def add(nums):
-    return sum(nums[i] for i in range(len(nums)))
+from __future__ import annotations
+import argparse
+from dataclasses import dataclass
+import re
+from typing import Optional
 
-def sub(nums):
-    sub = nums[0]
-    for i in range(1, len(nums)):
-        sub -= nums[i]
-    return sub
-
-def mul(nums):
-    mul = nums[0]
-    for i in range(1, len(nums)): # fixed issue where it would multiply the 1st number twice
-        mul *= nums[i]
-    return mul
-
-def div(nums):
-    div = nums[0]
-    for i in range(1, len(nums)): # fixed issue where it would divide the 1st number twice
-        div /= nums[i]
-    return div
+@dataclass
+class ArithmeticParser:
+    operator: Optional[str] = None
+    leftexp: Optional[ArithmeticParser] = None
+    rightexp: Optional[ArithmeticParser] = None
+    __ADD: str = "+"
+    __SUB: str = "-"
+    __MUL: str = "*"
+    __DIV: str = "/"
 
 
+    def __post_init__(self):
+        op_list = [self.__ADD, self.__SUB, self.__MUL, self.__DIV]
+        if self.operator not in op_list and self.operator is not None:
+            raise ValueError(f"[{self.operator}] is not a valid operator")
+
+
+def args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+            "command",
+            help="Arithmetic input to be calculated",
+    )
+    return parser.parse_args()
+
+def parse_input(input:str) -> ArithmeticParser:
+    input = re.split('\+|-|\*|\/', input)
+    print(input)
+    root = ArithmeticParser()
+    for idx, val in enumerate(input):
+        ...
+
+
+
+        
 if __name__ == '__main__':
-    nums = [int(x) for x in input("Enter the numbers: ").split()]  # can recieve indefinite inputs
-    arithmetic = input("Which arithmetic operator to use: ")  # +,-,*,/
-
-    arithmetic_operator = {"+": add(nums), "-": sub(nums), "*": mul(nums), "/": div(nums)}
-
-
-    print(arithmetic_operator[arithmetic])
+    input = args().command
+    parse_input(input)
+    
